@@ -59,19 +59,24 @@ const About = () => {
           <section className="College-Overview">
             <div className="college-area">
               <h2>College Overview</h2>
-              <p>
+              <p className="collage-Over-text">
                 Aptech Global Learning Institute is Located at PortHarcourt
                 Nigeria, is Affiliated with Middlesex University,London through
                 an academic partnership for top-up degrees.Established in
                 2005,it is recognized for their excellence technology education
                 and innovation learning, One of the best University we have.
               </p>
-              <p>
+              <p className="collage-Over-text">
                 Our Campus are well equipped with modern libraries,
                 collaborative learning spaces, and dedicated innovation hubs to
                 support both technical and creative development.
               </p>
             </div>
+                <div className="card-collage">
+                    <div className="card-name-collage">Name</div>
+                    <div className="card-location-collage">Location</div>
+                    <div className="card-affiliated-collage">Affiliation</div>
+                </div>
           </section>
 
           {/* <section className="key-events">

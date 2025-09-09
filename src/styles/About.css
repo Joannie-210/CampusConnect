@@ -29,6 +29,7 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+ 
 }
 /* for the text about campus connect */
 .about-CampusConnect-text {
@@ -109,5 +110,26 @@
 .college-area {
   background-color: aquamarine;
   max-width: 100%;
-  height: 100%;
+  /* height: 100%; */
+}
+.collage-Over-text{
+    font-weight: 600;
+    /* max-width: 970px; */
+}
+/* card for grid */
+.card-collage{
+    display: grid;
+    /* background-color: blue; */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    /* text-align: center; */
+}
+.card-name-collage{
+    background-color: blanchedalmond;
+}
+.card-location-collage{
+    background-color: aqua;
+}
+.card-affiliated-collage{
+    background-color: brown;
 }
