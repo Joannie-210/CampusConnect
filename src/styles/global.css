@@ -1,0 +1,40 @@
+:root{ 
+    --accent:#2b6cb0;
+     --muted:#666 
+    }
+*
+{
+    box-sizing:border-box
+}
+body{
+    font-family:Inter,system-ui,Segoe UI,Arial;
+    margin:0;
+    color:#222
+    }
+
+.main-content{
+    min-height:70vh; 
+    padding:1rem
+}
+a{
+    color:var(--accent);
+    text-decoration:none
+    }
+.btn{
+    display:inline-block;
+    padding:.5rem 1rem;
+    background:var(--accent);
+    color:#fff;
+    border-radius:6px
+}
+
+
+.btn-small{
+    padding:.35rem .6rem; 
+    border-radius:5px
+}
+
+img{
+    max-width:100%;
+    display:block
+}

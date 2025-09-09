@@ -1,0 +1,35 @@
+[
+{
+"id": "1",
+"title": "TechFest 2025",
+"date": "2025-07-20",
+"time": "10:00",
+"venue": "Main Auditorium",
+"department": "Computer Science",
+"category": "Technical",
+"description": "A college-wide tech festival with hackathons and workshops.",
+"image": "/assets/techfest.jpg"
+},
+{
+"id": "2",
+"title": "Cultural Week",
+"date": "2025-08-05",
+"time": "09:00",
+"venue": "Open Grounds",
+"department": "All",
+"category": "Cultural",
+"description": "Music, dance and drama across the week.",
+"image": "/assets/cultural.jpg"
+},
+{
+"id": "3",
+"title": "Inter-College Sports Meet",
+"date": "2024-11-12",
+"time": "08:00",
+"venue": "Sports Complex",
+"department": "Sports",
+"category": "Sports",
+"description": "Athletics and team events.",
+"image": "/assets/sports.jpg"
+}
+]
