@@ -9,6 +9,8 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+hover
+
 .events-header {
   text-align: center;
   margin-bottom: 30px;
@@ -157,19 +159,19 @@
 
 /* Event Card */
 .event-card {
+  position: relative;
   background: white;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 51, 102, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
   flex-direction: column;
 }
 
-.event-card:hover {
+/* .event-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 24px rgba(0, 51, 102, 0.15);
-}
+  box-shadow: 0 8px 24px rgba(0, 51, 102, 0.15); */
+/* } */
 
 .event-card.past {
   opacity: 0.8;
@@ -381,7 +383,13 @@
 
 /* Minimal Modal Styling */
 .details-modal-overlay {
-  background-color: red;
+  position: absolute;   /* absolute, not relative */
+  inset: 0;             /* cover only the card */
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255,255,255,0.9); /* light dim effect */
 }
 
 .details-modal {
