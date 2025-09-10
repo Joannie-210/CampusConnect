@@ -11,10 +11,10 @@ function EventsPage() {
   const [sortOrder, setSortOrder] = useState("asc");
   const [view, setView] = useState("cards");
   const [searchQuery, setSearchQuery] = useState("");
-useEffect(() => {
-  // Only set events once on mount
-  setEvents(eventsData);
-}, []);
+  useEffect(() => {
+    // Only set events once on mount
+    setEvents(eventsData);
+  }, []);
 
   // Filter events based on category and search query
   const filteredEvents = events.filter((e) => {
