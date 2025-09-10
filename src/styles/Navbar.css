@@ -1,23 +1,37 @@
-.nav-header{
+.nav-header {
   width: 100%;
-  border-bottom:1px solid #eee;
-  background-color: #e0f7e0;
+  border-bottom: 1px solid #eee;
+  background-color: white;
   padding-left: 10px;
   display: flex;
   align-items: center;
-  height: 100px;
+  justify-content: center;
+  height: 70px;
   padding-top: 10px;
-  top:0;
-  z-index:50
+  top: 0;
+  left: 0;
+  z-index: 50;
+  position: fixed;               /* stays on top */
+  transition: transform 0.4s ease-in-out; /* smooth slide */
 }
+
+/* when visible */
+.nav-header.show {
+  transform: translateY(0);
+}
+
+
+.nav-header.hide {
+  transform: translateY(-100%);
+}
+
 .nav-inner{
   max-width:1200px;
   width: 100%;
-  margin:0 auto;
+  margin-top: -10px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:.6rem;
 }
 @font-face {
   font-family: dis;
@@ -51,6 +65,19 @@
   gap: 10px;  
   border-radius: 50px;
 }
+.nav-btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  padding: 1rem;
+  border-radius: 50%;
+  background-color: white;
+  color: #1B4D3E;                     
+  font-size: 1.2rem;
+  font-weight: bold;
+}
 @font-face {
     font-family: brico;
     src: url("../assets/Bricolage_Grotesque/static/BricolageGrotesque_24pt_Condensed-Light.ttf");
@@ -71,14 +98,15 @@
 @media(
   max-width:920px)
   {
-.nav-links, .nav-inner .btn{
+.nav-links, .nav-inner .nav-btn{
   display:none
 }
 .nav-toggle{
   display:block;
   border:none;
   background:none;
-  font-size:1.4rem
+  font-size:1.4rem;
+  padding-right: 1rem;
 }
 
 }

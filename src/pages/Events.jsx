@@ -3,6 +3,7 @@ import eventsData from "../data/events.json";
 import "../styles/Events.css";
 import EventCard from "../components/EventCard";
 import EventsTable from "../components/EventsTable";
+
 function EventsPage() {
   const [events, setEvents] = useState([]);
   const [filter, setFilter] = useState("All");
@@ -10,25 +11,10 @@ function EventsPage() {
   const [sortOrder, setSortOrder] = useState("asc");
   const [view, setView] = useState("cards");
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedEvent, setSelectedEvent] = useState(null);
-  const [photoIndex, setPhotoIndex] = useState(0);
-  const [detailsEvent, setDetailsEvent] = useState(null);
-
-  useEffect(() => {
-    // Simulate API call with a delay
-    setTimeout(() => {
-      // Add sample photos to events for demonstration
-      const eventsWithPhotos = eventsData.map(event => ({
-        ...event,
-        photos: event.photos || [
-          "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
-          "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
-          "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
-        ]
-      }));
-      setEvents(eventsWithPhotos);
-    }, 500);
-  }, []);
+useEffect(() => {
+  // Only set events once on mount
+  setEvents(eventsData);
+}, []);
 
   // Filter events based on category and search query
   const filteredEvents = events.filter((e) => {
@@ -36,13 +22,13 @@ function EventsPage() {
     const name = (e.name || "").toLowerCase();
     const description = (e.description || "").toLowerCase();
     const matchesSearch = name.includes(searchQuery.toLowerCase()) ||
-                          description.includes(searchQuery.toLowerCase());
+      description.includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
+
   // Sort events based on selected criteria and order
   const sortedEvents = [...filteredEvents].sort((a, b) => {
     let comparison = 0;
-    
     if (sort === "date") {
       comparison = new Date(a.date) - new Date(b.date);
     } else if (sort === "name") {
@@ -50,7 +36,6 @@ function EventsPage() {
     } else if (sort === "category") {
       comparison = a.category.localeCompare(b.category);
     }
-    
     return sortOrder === "asc" ? comparison : -comparison;
   });
 
@@ -58,51 +43,6 @@ function EventsPage() {
   const now = new Date();
   const upcomingEvents = sortedEvents.filter(event => new Date(event.date) >= now);
   const pastEvents = sortedEvents.filter(event => new Date(event.date) < now);
-
-  // Open photo viewer
-  const openPhotoViewer = (event, index = 0) => {
-    setSelectedEvent(event);
-    setPhotoIndex(index);
-    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
-  };
-
-  // Close photo viewer
-  const closePhotoViewer = () => {
-    setSelectedEvent(null);
-    document.body.style.overflow = 'auto'; // Re-enable scrolling
-  };
-
-  // Navigate to next photo
-  const nextPhoto = () => {
-    setPhotoIndex((prevIndex) => 
-      prevIndex === selectedEvent.photos.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  // Navigate to previous photo
-  const prevPhoto = () => {
-    setPhotoIndex((prevIndex) => 
-      prevIndex === 0 ? selectedEvent.photos.length - 1 : prevIndex - 1
-    );
-  };
-
-  // Handle keyboard navigation
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (!selectedEvent) return;
-      
-      if (e.key === 'Escape') {
-        closePhotoViewer();
-      } else if (e.key === 'ArrowRight') {
-        nextPhoto();
-      } else if (e.key === 'ArrowLeft') {
-        prevPhoto();
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedEvent]);
 
   return (
     <div className="events-page">
@@ -142,7 +82,7 @@ function EventsPage() {
               <option value="name">Name</option>
               <option value="category">Category</option>
             </select>
-            <button 
+            <button
               className={`sort-order ${sortOrder}`}
               onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}
             >
@@ -153,13 +93,13 @@ function EventsPage() {
           <div className="view-control">
             <label>View:</label>
             <div className="view-toggle">
-              <button 
+              <button
                 className={view === "cards" ? "active" : ""}
                 onClick={() => setView("cards")}
               >
                 Cards
               </button>
-              <button 
+              <button
                 className={view === "table" ? "active" : ""}
                 onClick={() => setView("table")}
               >
@@ -193,19 +133,17 @@ function EventsPage() {
           {view === "cards" ? (
             <div className="events-grid">
               {pastEvents.map((event) => (
-                <EventCard 
-                  key={event.id} 
-                  event={event} 
-                  isPast={true} 
-                  onViewPhotos={() => openPhotoViewer(event)}
+                <EventCard
+                  key={event.id}
+                  event={event}
+                  isPast={true}
                 />
               ))}
             </div>
           ) : (
-            <EventsTable 
-              events={pastEvents} 
-              isPast={true} 
-              onViewPhotos={openPhotoViewer}
+            <EventsTable
+              events={pastEvents}
+              isPast={true}
             />
           )}
         </section>
@@ -217,26 +155,8 @@ function EventsPage() {
           <p>Try adjusting your filters or search query</p>
         </div>
       )}
-
-      {/* Photo Viewer Modal */}
-      {selectedEvent && (
-        <PhotoViewer
-          event={selectedEvent}
-          photoIndex={photoIndex}
-          onClose={closePhotoViewer}
-          onNext={nextPhoto}
-          onPrev={prevPhoto}
-        />
-      )}
-      
     </div>
   );
 }
-
-// Event Card Component
-
-// Events Table Component
-
-
 
 export default EventsPage;

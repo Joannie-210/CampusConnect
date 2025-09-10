@@ -1,16 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
-function EventCard({ event, isPast = false, onViewPhotos }) {
-  const [showRegisterModal, setShowRegisterModal] = useState(false);
-  const [showDetailsModal, setShowDetailsModal] = useState(false);
-
-  // Prevent modal click from closing when clicking inside modal
-  const stopPropagation = (e) => e.stopPropagation();
-
+function EventCard({ event, isPast = false }) {
   return (
     <div className={`event-card ${isPast ? 'past' : ''}`}>
       <div className="event-header">
-        <span className={`event-category ${event.category.toLowerCase()}`}>
+        <span className={`event-category ${event.category?.toLowerCase()}`}>
           {event.category}
         </span>
         <span className="event-date">
@@ -21,69 +15,28 @@ function EventCard({ event, isPast = false, onViewPhotos }) {
           })}
         </span>
       </div>
-      
       <div className="event-content">
         <h3>{event.name}</h3>
         <div className="event-details">
           <div className="event-detail">
-            <span className="icon"></span>
             <span>{event.time}</span>
           </div>
           <div className="event-detail">
-            <span className="icon"></span>
             <span>{event.venue}</span>
           </div>
         </div>
         <p className="event-description">{event.description}</p>
       </div>
-      
       <div className="event-actions">
         {!isPast && (
-          <button className="register-btn" onClick={() => setShowRegisterModal(true)}>
+          <button className="register-btn">
             Register
           </button>
         )}
-        <button 
-          className="details-btn"
-          onClick={isPast ? onViewPhotos : () => setShowDetailsModal(true)}
-        >
-          {isPast ? 'View Photos' : 'More Details'}
+        <button className="details-btn">
+          More Details
         </button>
       </div>
-
-      {/* Register Modal */}
-      {showRegisterModal && (
-        <div className="details-modal-overlay" onClick={() => setShowRegisterModal(false)}>
-          <div className="details-modal" onClick={stopPropagation}>
-            <button className="close-btn" onClick={() => setShowRegisterModal(false)}>×</button>
-            <h2>Register for {event.name}</h2>
-            <p><strong>Date:</strong> {new Date(event.date).toLocaleString()}</p>
-            <p><strong>Time:</strong> {event.time}</p>
-            <p><strong>Venue:</strong> {event.venue}</p>
-            <form onSubmit={e => { e.preventDefault(); setShowRegisterModal(false); }}>
-              <input type="text" placeholder="Your Name" required />
-              <input type="email" placeholder="Your Email" required />
-              <button type="submit" className="register-btn">Submit</button>
-            </form>
-          </div>
-        </div>
-      )}
-
-      {/* Details Modal */}
-      {showDetailsModal && (
-        <div className="details-modal-overlay" onClick={() => setShowDetailsModal(false)}>
-          <div className="details-modal" onClick={stopPropagation}>
-            <button className="close-btn" onClick={() => setShowDetailsModal(false)}>×</button>
-            <h2>{event.name}</h2>
-            <p><strong>Date:</strong> {new Date(event.date).toLocaleString()}</p>
-            <p><strong>Time:</strong> {event.time}</p>
-            <p><strong>Venue:</strong> {event.venue}</p>
-            <p><strong>Category:</strong> {event.category}</p>
-            <p><strong>Description:</strong> {event.description}</p>
-            {event.department && <p><strong>Department:</strong> {event.department}</p>}
-          </div>
-        </div>
-      )}
     </div>
   );
 }
