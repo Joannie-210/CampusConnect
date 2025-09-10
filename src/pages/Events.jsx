@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import eventsData from "../data/events.json";
 import "../styles/Events.css";
-
+import EventCard from "../components/EventCard";
+import EventsTable from "../components/EventsTable";
 function EventsPage() {
   const [events, setEvents] = useState([]);
   const [filter, setFilter] = useState("All");
@@ -11,6 +12,7 @@ function EventsPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [photoIndex, setPhotoIndex] = useState(0);
+  const [detailsEvent, setDetailsEvent] = useState(null);
 
   useEffect(() => {
     // Simulate API call with a delay
@@ -37,7 +39,6 @@ function EventsPage() {
                           description.includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
-
   // Sort events based on selected criteria and order
   const sortedEvents = [...filteredEvents].sort((a, b) => {
     let comparison = 0;
@@ -227,151 +228,15 @@ function EventsPage() {
           onPrev={prevPhoto}
         />
       )}
+      
     </div>
   );
 }
 
 // Event Card Component
-function EventCard({ event, isPast = false, onViewPhotos }) {
-  return (
-    <div className={`event-card ${isPast ? 'past' : ''}`}>
-      <div className="event-header">
-        <span className={`event-category ${event.category.toLowerCase()}`}>
-          {event.category}
-        </span>
-        <span className="event-date">
-          {new Date(event.date).toLocaleDateString('en-US', { 
-            month: 'short', 
-            day: 'numeric', 
-            year: 'numeric' 
-          })}
-        </span>
-      </div>
-      
-      <div className="event-content">
-        <h3>{event.name}</h3>
-        <div className="event-details">
-          <div className="event-detail">
-            <span className="icon"></span>
-            <span>{event.time}</span>
-          </div>
-          <div className="event-detail">
-            <span className="icon"></span>
-            <span>{event.venue}</span>
-          </div>
-        </div>
-        <p className="event-description">{event.description}</p>
-      </div>
-      
-      <div className="event-actions">
-        {!isPast && (
-          <button className="register-btn">Register</button>
-        )}
-        <button 
-          className="details-btn"
-          onClick={isPast ? onViewPhotos : () => {}}
-        >
-          {isPast ? 'View Photos' : 'More Details'}
-        </button>
-      </div>
-    </div>
-  );
-}
 
 // Events Table Component
-function EventsTable({ events, isPast = false, onViewPhotos }) {
-  return (
-    <div className="events-table-container">
-      <table className="events-table">
-        <thead>
-          <tr>
-            <th>Date & Time</th>
-            <th>Event Name</th>
-            <th>Category</th>
-            <th>Venue</th>
-            <th>Description</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {events.map((event) => (
-            <tr key={event.id} className={isPast ? 'past' : ''}>
-              <td>
-                <div className="event-datetime">
-                  <div>{new Date(event.date).toLocaleDateString()}</div>
-                  <div>{event.time}</div>
-                </div>
-              </td>
-              <td className="event-name">{event.name}</td>
-              <td>
-                <span className={`event-category ${event.category.toLowerCase()}`}>
-                  {event.category}
-                </span>
-              </td>
-              <td>{event.venue}</td>
-              <td className="event-desc">{event.description}</td>
-              <td>
-                <div className="table-actions">
-                  {!isPast && (
-                    <button className="register-btn">Register</button>
-                  )}
-                  <button 
-                    className="details-btn"
-                    onClick={isPast ? () => onViewPhotos(event) : () => {}}
-                  >
-                    {isPast ? 'View Photos' : 'Details'}
-                  </button>
-                </div>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
 
-// Photo Viewer Component
-function PhotoViewer({ event, photoIndex, onClose, onNext, onPrev }) {
-  return (
-    <div className="photo-viewer-overlay" onClick={onClose}>
-      <div className="photo-viewer-content" onClick={(e) => e.stopPropagation()}>
-        <button className="close-btn" onClick={onClose}>×</button>
-        
-        <div className="photo-viewer-header">
-          <h3>{event.name} - Photos</h3>
-          <div className="photo-counter">
-            {photoIndex + 1} / {event.photos.length}
-          </div>
-        </div>
-        
-        <div className="photo-container">
-          <button className="nav-btn prev-btn" onClick={onPrev}>‹</button>
-          
-          <div className="main-photo">
-            <img 
-              src={event.photos[photoIndex]} 
-              alt={`${event.name} - Photo ${photoIndex + 1}`}
-            />
-          </div>
-          
-          <button className="nav-btn next-btn" onClick={onNext}>›</button>
-        </div>
-        
-        <div className="photo-thumbnails">
-          {event.photos.map((photo, index) => (
-            <div 
-              key={index} 
-              className={`thumbnail ${index === photoIndex ? 'active' : ''}`}
-              onClick={() => setPhotoIndex(index)}
-            >
-              <img src={photo} alt={`Thumbnail ${index + 1}`} />
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
+
 
 export default EventsPage;
