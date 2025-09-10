@@ -381,13 +381,7 @@
 
 /* Minimal Modal Styling */
 .details-modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(27, 77, 62, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2000;
+  background-color: red;
 }
 
 .details-modal {
@@ -398,7 +392,7 @@
   max-width: 400px;
   width: 90%;
   box-shadow: 0 4px 24px rgba(27,77,62,0.15);
-  position: relative;
+  /* position: relative; */
   color: #1B4D3E;
   font-family: brico, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
