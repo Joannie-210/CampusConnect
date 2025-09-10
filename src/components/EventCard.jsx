@@ -70,7 +70,7 @@ function EventCard({ event, isPast = false }) {
       )}
 
       {showDetailsModal && !showRegisterModal && (
-        <div className="details-modal-overly" onClick={() => setShowDetailsModal(false)}>
+        <div className="details-modal-overlay" onClick={() => setShowDetailsModal(false)}>
           <div className="details-modal" onClick={stopPropagation}>
             <button className="close-btn" onClick={() => setShowDetailsModal(false)}>×</button>
             <h2>{event.name}</h2>

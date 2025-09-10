@@ -166,10 +166,10 @@
   flex-direction: column;
 }
 
-.event-card:hover {
+/* .event-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 24px rgba(0, 51, 102, 0.15);
-}
+} */
 
 .event-card.past {
   opacity: 0.8;
@@ -382,7 +382,8 @@
 /* Minimal Modal Styling */
 .details-modal-overlay {
   background-color: red;
-}
+  
+} 
 
 .details-modal {
   background: #fff;
@@ -416,4 +417,5 @@
 }
 .close-btn:hover {
   background: #145c2c;
+  
 }
