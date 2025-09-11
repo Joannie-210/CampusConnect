@@ -8,18 +8,18 @@ const [groupBy, setGroupBy] = useState('All')
 const images = galleryData.filter(g => groupBy==='All' || g.category===groupBy)
 return (
 <div className="gallery-page">
-<h2>Gallery</h2>
+<h2 style={{fontWeight: 'bold'}}>Our Gallery of Events</h2>
 <div className="gallery-controls">
 <select value={groupBy} onChange={e=>setGroupBy(e.target.value)}>
-<option>All</option>
-<option>Technical</option>
-<option>Cultural</option>
+   <option>All</option>
+   <option>Technical</option>
+    <option>Cultural</option>
 <option>Sports</option>
 </select>
 </div>
-<div className="grid">
+<div className="gallery-grid">
 {images.map(i=> (
-<figure key={i.id} className="thumb">
+<figure key={i.id} className="gallery-thumb">
 <img src={i.image} alt={i.title} />
 <figcaption>{i.title} — {i.date}</figcaption>
 </figure>
