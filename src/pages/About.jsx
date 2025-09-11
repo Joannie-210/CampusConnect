@@ -19,7 +19,7 @@ import international from "../assets/AboutAssets/international_day.jpg";
 import AlumniMeet from "../assets/AboutAssets/AlumniMeet.jpg";
 import BloodDonation from "../assets/AboutAssets/Blood-Donation.jpeg";
 import Intercollege from "../assets/AboutAssets/Inter-college Sports.webp";
-import aptechlocation from "../assets/AboutAssets/aptechlocation.webp"
+import aptechlocation from "../assets/AboutAssets/aptechlocation.webp";
 const slides = [
   {
     img: Alumni,
@@ -54,79 +54,91 @@ const aboutevents = [
   },
   {
     id: 3,
-    title:"Robotics Championship",
-    description:"showcasting cutting-edge rebotics projects in inter-college competitions.",
-    image:Robotics
+    title: "Robotics Championship",
+    description:
+      "showcasting cutting-edge rebotics projects in inter-college competitions.",
+    image: Robotics,
   },
 
   // Cultural events
   {
     id: 4,
-    title:"Annual Day",
-    description:"Annual International Day, where we celebrate the incredible 120+ nationalities that make up our vibrant university community",
-    image:international,
+    title: "Annual Day",
+    description:
+      "Annual International Day, where we celebrate the incredible 120+ nationalities that make up our vibrant university community",
+    image: international,
   },
   {
     id: 5,
-    title:"Music Nights",
-    description:"Student bands, DJs, or even professional artists Student bands, DJs, or even professional artists",
-    image:MusicNights
+    title: "Music Nights",
+    description:
+      "Student bands, DJs, or even professional artists Student bands, DJs, or even professional artists",
+    image: MusicNights,
   },
   {
     id: 6,
-    title:"Dance Competitions",
-    description:"Dance competitions are usually one of the most energetic and crowd-pulling cultural events.showcase both talent and teamwork.",
-    image:Dance
+    title: "Dance Competitions",
+    description:
+      "Dance competitions are usually one of the most energetic and crowd-pulling cultural events.showcase both talent and teamwork.",
+    image: Dance,
   },
   // Sports and Other Activities
   {
     id: 7,
-    title:" Inter-college Sports Meet",
-    description:"The inter College sports meet brings all athletes together from apteh and partnered institutions to compete. ",
-    image:Intercollege
+    title: " Inter-college Sports Meet",
+    description:
+      "The inter College sports meet brings all athletes together from apteh and partnered institutions to compete. ",
+    image: Intercollege,
   },
   {
     id: 8,
-    title:"Blood Donation Drives",
-    description:"your blood donation drives encourages students to give back to community by contributing to life-saving heathcare initiatives in partnership with leading  hospitals and NGOs.",
-    image:BloodDonation
+    title: "Blood Donation Drives",
+    description:
+      "your blood donation drives encourages students to give back to community by contributing to life-saving heathcare initiatives in partnership with leading  hospitals and NGOs.",
+    image: BloodDonation,
   },
   {
     id: 9,
-    title:"Alumni Meet",
-    description:" Annual gethering of past graduates, share experiences,mentor students, this builds networking and  career opportunities.",
-    image:AlumniMeet
+    title: "Alumni Meet",
+    description:
+      " Annual gethering of past graduates, share experiences,mentor students, this builds networking and  career opportunities.",
+    image: AlumniMeet,
   },
 ];
 
-// timelines 
-const timelines =[
+// timelines
+const timelines = [
   {
-    month:"January-February",
-    title:"Inter-college Sports Meet",
-    description:"Competitions in every or various aport like soccer, football, basketball etc,any you can mention we have and we do."
+    month: "January-February",
+    title: "Inter-college Sports Meet",
+    description:
+      "Competitions in every or various aport like soccer, football, basketball etc,any you can mention we have and we do.",
   },
   {
-    month:"January-February",
-    title:"Inter-college Sports Meet",
-    description:"Competitions in every or various aport like soccer, football, basketball etc,any you can mention we have and we do."
+    month: "March-April",
+    title: "Hackathon",
+    description:
+      "24-hours coding marathon where teams build innovative solutions to real-world problems.",
   },
   {
-    month:"January-February",
-    title:"Inter-college Sports Meet",
-    description:"Competitions in every or various aport like soccer, football, basketball etc,any you can mention we have and we do."
+    month: "May-June",
+    title: "Annual Cultural Day",
+    description:
+      "A day filled with performances, exhibitions, and celebrations of diverse cultures within the campus community.",
   },
   {
-    month:"January-February",
-    title:"Inter-college Sports Meet",
-    description:"Competitions in every or various aport like soccer, football, basketball etc,any you can mention we have and we do."
+    month: "July-August",
+    title: "Blood Donation Drive",
+    description:
+      "A campus-wide initiative encouraging students and staff to donate blood and save lives.",
   },
   {
-    month:"January-February",
-    title:"Inter-college Sports Meet",
-    description:"Competitions in every or various aport like soccer, football, basketball etc,any you can mention we have and we do."
-  }
-]
+    month: "September-October",
+    title: "Tech Exhibition and Robotics Championship",
+    description:
+      "Showcasing cutting-edge technology projects and robotics competitions among students.Thats the best part of it.",
+  },
+];
 
 const About = () => {
   // this shows the current value the image will be showing
@@ -141,6 +153,15 @@ const About = () => {
     }, 6000);
     return () => clearInterval(interval);
   }, []);
+
+  // this is for the image openers
+
+  const [open1, setOpen1] = useState(false); //this is for the image opener1
+  const [open, setOpen] = useState(false); //this is for the image opener
+  const [open2, setOpen2] = useState(false); //this is for the image opener3
+
+  // this is for the gallery scroll
+
   return (
     <>
       <div className="about-conta">
@@ -153,9 +174,11 @@ const About = () => {
             {slides.map((slide, index) => (
               <div className="aboutSlide" key={index}>
                 <img src={slide.img} alt={slide.title} />
+
                 <div className="about-lay">
                   <h2>{slide.title}</h2>
                   <p>{slide.desc}</p>
+
                   {/* <p>{slide.sub}</p> */}
                 </div>
               </div>
@@ -183,19 +206,131 @@ const About = () => {
           {/* for the cards */}
           <div className="about-card-overview">
             <div className="about-cards">
-              <img src={Aptech_Limited_Logo} alt="aptech-image" />
-              <h3>Aptech Global Learning Institute</h3>
+              <img
+                src={Aptech_Limited_Logo}
+                alt="aptech-image"
+                onClick={() => setOpen1(Aptech_Limited_Logo)}
+              />
+              <h3 className="about-card-text">
+                Aptech Global Learning Institute
+              </h3>
             </div>
+            {/* model   */}
+            {open1 && (
+              <div className="about-full" onClick={() => setOpen1(false)}>
+                <div
+                  className="about-full-contect"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <button
+                    className="about-closes"
+                    onClick={() => setOpen1(false)}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="20"
+                      fill="currentColor"
+                      class="bi bi-x-lg"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                    </svg>
+                  </button>
+                  <img
+                    src={Aptech_Limited_Logo}
+                    alt="middlesex fullimage"
+                    className="aboutfullImage"
+                  />
+                </div>
+              </div>
+            )}
+
             <div className="about-cards">
-              <img src={aptechlocation} />
+              <img
+                src={aptechlocation}
+                alt="Aptech location"
+                className="aboutThumbnail"
+                onClick={() => setOpen(true)}
+              />
+
               <h2>Location</h2>
-              <p> MBM PLAZA, 48 Old Aba Rd, near Shell I.A.) Rumubiokani, Rumuola, Port Harcourt 500102, Rivers</p>
+              <p>
+                {" "}
+                MBM PLAZA, 48 Old Aba Rd, near Shell I.A.) Rumubiokani, Rumuola,
+                Port Harcourt 500102, Rivers
+              </p>
             </div>
+            {/* model   */}
+            {open && (
+              <div className="about-full" onClick={() => setOpen(false)}>
+                <div
+                  className="about-full-contect"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <button
+                    className="about-close"
+                    onClick={() => setOpen(false)}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="20"
+                      fill="currentColor"
+                      class="bi bi-x-lg"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                    </svg>
+                  </button>
+                  <img
+                    src={aptechlocation}
+                    alt="Aptech full location"
+                    className="aboutfullImage"
+                  />
+                </div>
+              </div>
+            )}
+            {/* card 3 */}
             <div className="about-cards">
-              <img src={middleSex} />
+              <img
+                src={middleSex}
+                onClick={() => setOpen2(middleSex)}
+                alt="middleSex"
+              />
               <h3>Affiliation</h3>
               <p>MiddleSex University,London</p>
             </div>
+            {/* model   */}
+            {open2 && (
+              <div className="about-full" onClick={() => setOpen2(false)}>
+                <div
+                  className="about-full-contect"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <button
+                    className="about-close"
+                    onClick={() => setOpen2(false)}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="20"
+                      fill="currentColor"
+                      class="bi bi-x-lg"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                    </svg>
+                  </button>
+                  <img
+                    src={middleSex}
+                    alt="middlesex fullimage"
+                    className="aboutfullImage"
+                  />
+                </div>
+              </div>
+            )}
           </div>
         </section>
 
@@ -224,17 +359,42 @@ const About = () => {
               <li>State-of-the-art labs & innovation hubs</li>
             </ul>
           </div>
+
           {/* the gallery display */}
           <div className="about-cards-hights">
             <div className="abouthights">
-              <img src={years} className="about-h-card about-item-1" />
-              <img src={Partnership} className="about-h-card about-item-2" />
-              <img src={bestIT} className="about-h-card about-item-3" />
-              <img src={Alumni} className="about-h-card about-item-4" />
-              <img src={State} className="about-h-card about-item-5" />
+              <img
+                src={years}
+                className="about-h-card about-item-1"
+                data-index="1"
+              />
+              <img
+                src={Partnership}
+                className="about-h-card about-item-2"
+                data-index="2"
+              />
+              <img
+                src={bestIT}
+                className="about-h-card about-item-3"
+                data-index="3"
+              />
+              <img
+                src={Alumni}
+                className="about-h-card about-item-4"
+                data-index="4"
+              />
+              <img
+                src={State}
+                className="about-h-card about-item-5"
+                data-index="5"
+              />
               {/* <img src={Recognizedexcellence} className="about-h-card about-item-6" /> */}
             </div>
+
+            {/* button for the image */}
             <div className="about-control"></div>
+            {/* <button className="about-left" onClick={scrolltoLeft}>&lt;</button>
+            <button className="about-right" onClick={scrolltoRight}>&gt;</button> */}
           </div>
         </section>
         {/* key events */}
@@ -243,26 +403,28 @@ const About = () => {
             <h2>Key Annual Events</h2>
             <p>
               Our campus is always buzzing with exciting events, from Technical
-              events, Cultural events,Sports. Every year, our campus comes alive with celebrations,innovation,and achievements, these are the highlights that bring our community together.
+              events, Cultural events,Sports. Every year, our campus comes alive
+              with celebrations,innovation,and achievements, these are the
+              highlights that bring our community together.
             </p>
           </div>
           {/* Tech  */}
           <div className="about-event-container">
-            {aboutevents.map((Aevents)=>(
+            {aboutevents.map((Aevents) => (
               <div key={Aevents.id} className="AevenetCard">
                 <img src={Aevents.image} />
                 <div className="Aevent-lay">
                   <h3>{Aevents.title}</h3>
                   <p>{Aevents.description}</p>
                 </div>
-              </div> 
+              </div>
             ))}
           </div>
           <section className="about-timelines">
             <h2 className="acount-timelines-title"> frequency of events.</h2>
             <div className="acounttimelines">
-              {timelines.map((timesl, index)=>(
-                <div  key={index} className="about-timelines-item">
+              {timelines.map((timesl, index) => (
+                <div key={index} className="about-timelines-item">
                   <div className="about-timelines-month">{timesl.month}</div>
                   <div className="about-timelines-content">
                     <h3>{timesl.title}</h3>
@@ -272,8 +434,26 @@ const About = () => {
               ))}
             </div>
           </section>
+          <section className="about-joinus">
+            <h2>Join Us and Be Part of the Excitement!</h2>
+            <p>
+              If you a student eager to showcase your talent, or a faculty
+              member supporting innovation, or an alumni wanting to reconnect.
+              CampusConnect is your go-to platform for all things events on
+              campus. Stay informed, get involved, and make the most of your
+              campus experience.
+            </p>
+            <p>
+              From exciting competitions and cultural nights to impactful
+              community drives, there's something for everyone. Explore,
+              participate, and celebrate with us!
+            </p>
+            <p>Ready to dive in? Visit our to see what's happening</p>
+            <button>
+              <Link to="/events"> Events Page</Link>
+            </button>{" "}
+          </section>
         </div>
-        
       </div>
     </>
   );
