@@ -1,0 +1,123 @@
+.testimonial-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: #f9fafb;
+  overflow: hidden;
+}
+
+.testimonial-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #1B4D3E;
+}
+
+.testimonial-marquee {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.testimonial-marquee:hover .marquee-track {
+  animation-play-state: paused; 
+}
+@font-face {
+    font-family: brico;
+    src: url('../assets/Bricolage_Grotesque/static/BricolageGrotesque_36pt-ExtraBold.ttf');
+}
+.testimonial-title  {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #1B4D3E;
+  font-family: brico;
+  font-weight: bold;
+}
+
+.testimonial-card {
+  min-width: 280px;
+  max-width: 320px;
+  background: white;
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-6px);
+}
+
+.quote-icon {
+  color: #1B4D3E;
+  opacity: 0.25;
+  margin-bottom: 1rem;
+}
+
+.testimonial-text {
+  font-style: italic;
+  color: #333;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+  font-size: 0.95rem;
+}
+
+.testimonial-footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.testimonial-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.testimonial-name {
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  color: #1B4D3E;
+}
+
+.testimonial-role {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.3rem;
+}
+
+
+.stars {
+  display: flex;
+  gap: 2px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.star.filled {
+  color: #ffaa00; 
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import events from '../data/events.json'
 import '../styles/Home.css'
 import colimage1 from '../assets/uni.jpg'
-
+import Testimonial from '../components/Testimonial'
 import { Clock } from "lucide-react";
 
 
@@ -42,7 +42,7 @@ export default function Home() {
       <div className="home-page">
         <section className="hero">
           <div className="hero-text">
-            <h1>Welcome to CampusConnect!</h1>
+            <h1>Welcome to Campus<i style={{fontStyle: "normal", color: "#ffaa00"}}>Connect!</i></h1>
             <p>
               Stay Updated, Stay Involved — discover campus events and activities.
             </p>
@@ -51,10 +51,18 @@ export default function Home() {
                 Browse Events
                 <span className="btn-icon">↗</span>
               </Link>
-              <Link to="/events" className="home-btn-2">
+              <Link to="/about" className="home-btn-2">
                 About us
                 <span className="btn-icon2">↗</span>
               </Link>
+            </div>
+            <div className='alt-home-btn-div'>
+              <Link to="/events" className="alt-home-btn">
+                Browse Events
+                </Link>
+              <Link to="/events" className="alt-home-btn-2">
+                About us
+                </Link>
             </div>
           </div>
           <div className='home-hero-image'>
@@ -88,7 +96,7 @@ export default function Home() {
                     </p>
                     <p className="description">{ev.description}</p>
 
-                    {/* countdown */}
+               
                     <p className="countdown">
                       <Clock size={16} style={{ marginRight: "6px" }} />
                       {days}d {hours}h {minutes}m {seconds}s
@@ -127,7 +135,19 @@ export default function Home() {
           </div>
         </div>
       </section>
+  <Testimonial />
 
+      {/* Call to Action */}
+      <section className="home-cta">
+        <h2>Stay Connected, Stay Involved</h2>
+        <p>
+          Be the first to know about the latest campus happenings. Explore now
+          and make the most of your college life.
+        </p>
+        <Link to="/events" className="home-cta-btn">
+          View All Events →
+        </Link>
+      </section>
     </>
   );
 }
