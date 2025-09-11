@@ -1,69 +1,79 @@
 [
-{
-"id": "1",
-"title": "TechFest 2025",
-"date": "2025-12-20",
-"time": "10:00",
-"venue": "Main Auditorium",
-"department": "Computer Science",
-"category": "Technical",
-"description": "A college-wide tech festival with hackathons and workshops.",
-"image": "https://instadeep.com/wp-content/uploads/2018/11/DevFest-Lagos-1-scaled.jpg"
-},
-{
-"id": "2",
-"title": "Cultural Week",
-"date": "2025-12-05",
-"time": "09:00",
-"venue": "Open Grounds",
-"department": "All",
-"category": "Cultural",
-"description": "Music, dance and drama across the week.",
-"image": "https://i0.wp.com/maaun.edu.ng/wp-content/uploads/2023/07/WhatsApp-Image-2023-07-13-at-12.15.55.jpeg?fit=1280%2C856&ssl=1"
-},
-{
-"id": "3",
-"title": "Inter-College Sports Meet",
-"date": "2025-12-12",
-"time": "08:00",
-"venue": "Sports Complex",
-"department": "Sports",
-"category": "Sports",
-"description": "Athletics and team events.",
-"image": "https://www.dace.edu.gh/wp-content/uploads/2022/07/Captains-of-the-Participating-Teams-Led-by-the-DACE-Captain-about-to-Deliver-the-Tournaments-Flag-for-Hoisting-during-the-1024x683.jpg"
-},
-{
-"id": "4",
-"title": "Theatre Arts Students Presentation",
-"date": "2025-11-12",
-"time": "10:00",
-"venue": "Convocation Hall",
-"department": "Theatre Arts",
-"category": "Theatre Arts",
-"description": "Acting",
-"image" : "https://www.ut.edu/academics/college-of-arts-and-letters/department-of-theatre-and-dance-degrees/_jcr_content/root/main/container/basic_page_hero/image.coreimg.jpeg/1744905044879/musicaltheatre-large.jpeg"
-},
-{
-"id": "5",
-"title": "Law Students Debate Competition",
-"date": "2025-11-12",
-"time": "12:00",
-"venue": "Convocation Hall",
-"department": "Law",
-"category": "Law",
-"description": "Annual Debate Competition",
-"image": "https://pbs.twimg.com/media/Gzwc7jqWcAAPqtl.jpg"
-},
-
-{
-"id": "6",
-"title": "Students Trade Fair",
-"date": "2025-11-22",
-"time": "10:00",
-"venue": "University Grounds",
-"department": "All",
-"category": "Trade Fair",
-"description": "Recreation/Trade",
-"image": "https://nbctradefair.com/wp-content/uploads/2022/06/slide3.jpg"
-}
+  {
+    "id": "1",
+    "title": "TechFest 2025",
+    "date": "2025-12-20",
+    "time": "10:00",
+    "venue": "Main Auditorium",
+    "department": "Computer Science",
+    "category": "Technical",
+    "description": "A college-wide tech festival with hackathons and workshops.",
+    "image": "https://instadeep.com/wp-content/uploads/2018/11/DevFest-Lagos-1-scaled.jpg"
+  },
+  {
+    "id": "2",
+    "title": "Cultural Week",
+    "date": "2025-12-05",
+    "time": "09:00",
+    "venue": "Open Grounds",
+    "department": "All",
+    "category": "Cultural",
+    "description": "Music, dance and drama across the week.",
+    "image": "https://i0.wp.com/maaun.edu.ng/wp-content/uploads/2023/07/WhatsApp-Image-2023-07-13-at-12.15.55.jpeg?fit=1280%2C856&ssl=1"
+  },
+  {
+    "id": "3",
+    "title": "Inter-College Sports Meet",
+    "date": "2025-12-12",
+    "time": "08:00",
+    "venue": "Sports Complex",
+    "department": "Sports",
+    "category": "Sports",
+    "description": "Athletics and team events.",
+    "image": "https://www.dace.edu.gh/wp-content/uploads/2022/07/Captains-of-the-Participating-Teams-Led-by-the-DACE-Captain-about-to-Deliver-the-Tournaments-Flag-for-Hoisting-during-the-1024x683.jpg"
+  },
+  {
+    "id": "4",
+    "title": "Theatre Arts Students Presentation",
+    "date": "2025-11-12",
+    "time": "10:00",
+    "venue": "Convocation Hall",
+    "department": "Theatre Arts",
+    "category": "Theatre Arts",
+    "description": "Acting",
+    "image": "https://www.ut.edu/academics/college-of-arts-and-letters/department-of-theatre-and-dance-degrees/_jcr_content/root/main/container/basic_page_hero/image.coreimg.jpeg/1744905044879/musicaltheatre-large.jpeg"
+  },
+  {
+    "id": "5",
+    "title": "Law Students Debate Competition",
+    "date": "2025-11-12",
+    "time": "12:00",
+    "venue": "Convocation Hall",
+    "department": "Law",
+    "category": "Law",
+    "description": "Annual Debate Competition",
+    "image": "https://pbs.twimg.com/media/Gzwc7jqWcAAPqtl.jpg"
+  },
+  {
+    "id": "6",
+    "title": "Students Trade Fair",
+    "date": "2025-11-22",
+    "time": "10:00",
+    "venue": "University Grounds",
+    "department": "All",
+    "category": "Trade Fair",
+    "description": "Recreation/Trade",
+    "image": "https://nbctradefair.com/wp-content/uploads/2022/06/slide3.jpg"
+  },
+  {
+    "id": "7",
+    "title": "Drama Club Play: Hamlet",
+    "date": "2025-08-30",
+    "time": "18:30",
+    "venue": "Auditorium",
+    "department": "Drama Club",
+    "category": "Cultural",
+    "description": "A modern adaptation of Shakespeare's Hamlet performed by the Drama Club.",
+    "image": "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=80"
+  }
 ]

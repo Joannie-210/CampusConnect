@@ -135,18 +135,18 @@ legend {
   background: #1B4D3E;
   color: #fff;
   font-weight: 600;
-  padding: 0.8rem;
+  padding: 1rem 1.5rem;
   border: none;
   border-radius:50px;
   cursor: pointer;
   font-size: 1rem;
-  margin-top: 1rem;
+  margin: 20px 0;
   transition: background 0.3s ease;
 }
 
 .btn:hover {
-  background: #b0d8b0;
-  color:  #1B4D3E;
+  transform: translateY(-2px);
+   opacity: 0.8;
 }
 
   @media (max-width: 690px) {

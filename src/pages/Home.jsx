@@ -102,7 +102,7 @@ export default function Home() {
                       {days}d {hours}h {minutes}m {seconds}s
                     </p>
 
-                    <Link to={`/events/${ev.id}`} className="small-link">
+                    <Link to={`/events`} className="small-link">
                       Learn more <span className="arrow">↗</span>
                     </Link>
                   </div>
