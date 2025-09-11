@@ -2,3 +2,158 @@
 .feedback-form label{display:block;margin-bottom:.6rem}
 .feedback-form input,.feedback-form select,.feedback-form textarea{width:100%;padding:.5rem;border:1px solid #ddd;border-radius:6px}
 .rating{display:flex;gap:.5rem}
+
+@font-face {
+    font-family: brico;
+    src: url("../assets/Bricolage_Grotesque/static/BricolageGrotesque_24pt-Light.ttf");
+}
+
+
+.feedback-page {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 40px 50px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family: brico;
+}
+
+.feedback-page h2 {
+  font-size: 30px;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+  color: #333333;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.feedback-form button{
+  display: flex;
+  font-size: 18px;
+  justify-content: center;
+  font-family: brico;
+}
+.feedback-form label {
+  margin-bottom: 30px;
+  font-weight: bold;
+  color: #555555;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  letter-spacing: 1px;
+  width: 100%;
+}
+
+.feedback-form input,
+.feedback-form select,
+.feedback-form textarea {
+  margin-top: 5px;
+  padding: 12px;
+  font-size: 15px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.feedback-form select {
+  font-family: brico;
+  font-size: 15px;
+}
+.feedback-form input:focus,
+.feedback-form select:focus,
+.feedback-form textarea:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+  background: #ffffff;
+}
+
+.feedback-form input::placeholder{
+  font-family: brico;
+}
+
+.feedback-rating {
+  display: flex;
+  gap: 12px;
+  margin-top: 5px;
+}
+
+.feedback-rating label {
+  font-weight: normal;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.feedback-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.btn {
+  margin-top: 10px;
+  padding: 12px;
+  background: #007BFF;
+  color: white;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: #0056b3;
+}
+
+.feedback-rating-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  width: 100%;
+  overflow-x: auto;
+  padding-top: 20px;
+}
+
+.feedback-rating-container h4{
+  font-size: 12px;
+}
+.feedback-container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+
+.radio {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.feedback-radio-content {
+  background-color: white;
+  border: 1px solid black;
+  top: 0;
+  left: 0;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  transition: all 0.2s;
+}
+
+.radio-content p {
+  color: black;
+}
+
+.feedback-container input:checked ~ .feedback-radio-content {
+  background-color: rgb(184, 190, 186);
+}
