@@ -1,35 +1,46 @@
 [
-{
-"id": "1",
-"title": "TechFest 2025",
-"date": "2025-07-20",
-"time": "10:00",
-"venue": "Main Auditorium",
-"department": "Computer Science",
-"category": "Technical",
-"description": "A college-wide tech festival with hackathons and workshops.",
-"image": "/assets/techfest.jpg"
-},
-{
-"id": "2",
-"title": "Cultural Week",
-"date": "2025-08-05",
-"time": "09:00",
-"venue": "Open Grounds",
-"department": "All",
-"category": "Cultural",
-"description": "Music, dance and drama across the week.",
-"image": "/assets/cultural.jpg"
-},
-{
-"id": "3",
-"title": "Inter-College Sports Meet",
-"date": "2024-11-12",
-"time": "08:00",
-"venue": "Sports Complex",
-"department": "Sports",
-"category": "Sports",
-"description": "Athletics and team events.",
-"image": "/assets/sports.jpg"
-}
+  {
+    "id": "1",
+    "title": "TechFest 2025",
+    "date": "2025-12-20",
+    "time": "10:00",
+    "venue": "Main Auditorium",
+    "department": "Computer Science",
+    "category": "Technical",
+    "description": "A college-wide tech festival with hackathons and workshops.",
+    "image": "https://instadeep.com/wp-content/uploads/2018/11/DevFest-Lagos-1-scaled.jpg"
+  },
+  {
+    "id": "2",
+    "title": "Cultural Week",
+    "date": "2025-12-05",
+    "time": "09:00",
+    "venue": "Open Grounds",
+    "department": "All",
+    "category": "Cultural",
+    "description": "Music, dance and drama across the week.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvetQuIS-xO7AGraPmcECyJGiXe8AAIlS04w&s"
+  },
+  {
+    "id": "3",
+    "title": "Inter-College Sports Meet",
+    "date": "2025-12-12",
+    "time": "08:00",
+    "venue": "Sports Complex",
+    "department": "Sports",
+    "category": "Sports",
+    "description": "Athletics and team events.",
+    "image": "https://www.dace.edu.gh/wp-content/uploads/2022/07/Captains-of-the-Participating-Teams-Led-by-the-DACE-Captain-about-to-Deliver-the-Tournaments-Flag-for-Hoisting-during-the-1024x683.jpg"
+  },
+  {
+    "id": "4",
+    "title": "Theatre Arts Students Presentation",
+    "date": "2025-11-12",
+    "time": "10:00",
+    "venue": "Convocation Hall",
+    "department": "Theatre Arts",
+    "category": "Theatre Arts",
+    "description": "Acting",
+    "image": "https://www.mmm.edu/live/image/gid/95/width/770/height/510/crop/1/925_15.rev.1453901100.webp"
+  }
 ]
