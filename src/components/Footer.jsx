@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-container">    
         <div className="footer-col">
-          <h2 className="footer-logo">CampusConnect</h2>
+          <h2 className="footer-logo">Campus<i style={{color: "#ffaa00"}}>Connect</i></h2>
           <p className="footer-desc">
             Your one-stop hub for discovering, tracking, and attending campus events. 
             Stay connected with the life of your campus.

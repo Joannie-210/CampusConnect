@@ -1,10 +1,20 @@
 import React from "react";
 import "../styles/Feedback.css";
+import feedbackHero from "../assets/feed.jpg"; 
 
 export default function Feedback() {
   return (
     <div className="feedback-page">
-      <h2>Event Feedback</h2>
+      <div className="feedback-hero">
+        <img src={feedbackHero} alt="Event feedback" />
+        <div className="feedback-hero-text">
+          <h1>We <i style={{color: "#ffaa00", fontStyle: "normal"}}>Value </i>Your Feedback</h1>
+          <p>
+            Help us make future events even better by sharing your thoughts and experiences.
+          </p>
+        </div>
+      </div>
+
       <form
         className="feedback-form"
         onSubmit={(e) => {
@@ -12,13 +22,19 @@ export default function Feedback() {
           alert("This form is UI-only");
         }}
       >
-        <label className="">
+        <h2>Event Feedback Form</h2>
+
+        <label>
           Name
-          <input  placeholder="Enter Full Name"/>
+          <input placeholder="Enter Full Name" />
         </label>
+
         <label>
           Email
-          <input type="email" placeholder="Enter your email, e.g: tartor@gmail.com"/>
+          <input
+            type="email"
+            placeholder="Enter your email, e.g: tartor@gmail.com"
+          />
         </label>
 
         <label>
@@ -41,205 +57,49 @@ export default function Feedback() {
           </select>
         </label>
 
-        <label>
-          Overall, how entertaining was the event?
+        {/* Ratings */}
+        <fieldset>
+          <legend>Overall, how entertaining was the event?</legend>
           <div className="feedback-rating">
-            <div className="feedback-rating-container">
-              <label className="feedback-container">
-                <input
-                  type="radio"
-                  name="entertainment"
-                  className="radio"
-                  value="1"
-                />
-                <div className="feedback-radio-content">
-                  <p>1</p>
-                </div>
-                <h4>Boring</h4>
+            {[1, 2, 3, 4, 5].map((n) => (
+              <label key={n} className="feedback-container">
+                <input type="radio" name="entertainment" value={n} />
+                <div className="feedback-radio-content">{n}</div>
               </label>
-              <label className="feedback-container">
-                <input
-                  type="radio"
-                  name="entertainment"
-                  className="radio"
-                  value="2"
-                />
-                <div className="feedback-radio-content">
-                  <p>2</p>
-                </div>
-              </label>
-              <label className="feedback-container">
-                <input
-                  type="radio"
-                  name="entertainment"
-                  className="radio"
-                  value="3"
-                />
-                <div className="feedback-radio-content">
-                  <p>3</p>
-                </div>
-              </label>
-              <label className="feedback-container">
-                <input
-                  type="radio"
-                  name="entertainment"
-                  className="radio"
-                  value="4"
-                />
-                <div className="feedback-radio-content">
-                  <p>4</p>
-                </div>
-              </label>
-              <label className="feedback-container">
-                <input
-                  type="radio"
-                  name="entertainment"
-                  className="radio"
-                  value="5"
-                />
-                <div className="feedback-radio-content">
-                  <p>5</p>
-                </div>
-                <h4>Very Entertaining</h4>
-              </label>
-            </div>
+            ))}
           </div>
-        </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>How welcoming was the atmosphere?</legend>
+          <div className="feedback-rating">
+            {[1, 2, 3, 4, 5].map((n) => (
+              <label key={n} className="feedback-container">
+                <input type="radio" name="atmosphere" value={n} />
+                <div className="feedback-radio-content">{n}</div>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>How likely are you to join future events?</legend>
+          <div className="feedback-rating">
+            {[1, 2, 3, 4, 5].map((n) => (
+              <label key={n} className="feedback-container">
+                <input type="radio" name="futureEvents" value={n} />
+                <div className="feedback-radio-content">{n}</div>
+              </label>
+            ))}
+          </div>
+        </fieldset>
 
         <label>
-          How welcoming was the atmosphere?
-          <div className="feedback-rating">
-            <div className="feedback-rating-container">
-              <label className="feedback-container">
-                <input
-                  type="radio"
-                  name="atmosphere"
-                  className="radio"
-                  value="1"
-                />
-                <div className="feedback-radio-content">
-                  <p>1</p>
-                </div>
-                <h4>Poor</h4>
-              </label>
-              <label className="feedback-container">
-                <input
-                  type="radio"
-                  name="atmosphere"
-                  className="radio"
-                  value="2"
-                />
-                <div className="feedback-radio-content">
-                  <p>2</p>
-                </div>
-              </label>
-              <label className="feedback-container">
-                <input
-                  type="radio"
-                  name="atmosphere"
-                  className="radio"
-                  value="3"
-                />
-                <div className="feedback-radio-content">
-                  <p>3</p>
-                </div>
-              </label>
-              <label className="feedback-container">
-                <input
-                  type="radio"
-                  name="atmosphere"
-                  className="radio"
-                  value="4"
-                />
-                <div className="feedback-radio-content">
-                  <p>4</p>
-                </div>
-              </label>
-              <label className="feedback-container">
-                <input
-                  type="radio"
-                  name="atmosphere"
-                  className="radio"
-                  value="5"
-                />
-                <div className="feedback-radio-content">
-                  <p>5</p>
-                </div>
-                <h4>Excellent</h4>
-              </label>
-            </div>
-          </div>
+          Comments
+          <textarea rows="4" placeholder="Share your thoughts..."></textarea>
         </label>
 
-        <label>
-          How likely are you to join future events?
-          <div className="feedback-rating">
-            <div className="feedback-rating-container">
-              <label className="feedback-container">
-                <input
-                  type="radio"
-                  name="futureEvents"
-                  className="radio"
-                  value="1"
-                />
-                <div className="feedback-radio-content">
-                  <p>1</p>
-                </div>
-                <h4>Not Likely</h4>
-              </label>
-              <label className="feedback-container">
-                <input
-                  type="radio"
-                  name="futureEvents"
-                  className="radio"
-                  value="2"
-                />
-                <div className="feedback-radio-content">
-                  <p>2</p>
-                </div>
-              </label>
-              <label className="feedback-container">
-                <input
-                  type="radio"
-                  name="futureEvents"
-                  className="radio"
-                  value="3"
-                />
-                <div className="feedback-radio-content">
-                  <p>3</p>
-                </div>
-              </label>
-              <label className="feedback-container">
-                <input
-                  type="radio"
-                  name="futureEvents"
-                  className="radio"
-                  value="4"
-                />
-                <div className="feedback-radio-content">
-                  <p>4</p>
-                </div>
-              </label>
-              <label className="feedback-container">
-                <input
-                  type="radio"
-                  name="futureEvents"
-                  className="radio"
-                  value="5"
-                />
-                <div className="feedback-radio-content">
-                  <p>5</p>
-                </div>
-                <h4>Very Likely</h4>
-              </label>
-            </div>
-          </div>
-        </label>
-
-        <label>
-          Comments<textarea rows="4"></textarea>
-        </label>
-        <button className="btn">Submit</button>
+        <button className="btn">Submit Feedback</button>
       </form>
     </div>
   );
