@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+// You may need to adjust the import path for images if using require or import
+// Example: import eventImages from '../assets/events/event1.jpg';
+
 function EventCard({ event, isPast = false }) {
   const [showRegisterModal, setShowRegisterModal] = useState(false);
   const [showDetailsModal, setShowDetailsModal] = useState(false);
@@ -9,19 +12,25 @@ function EventCard({ event, isPast = false }) {
 
   return (
     <div className={`event-card ${isPast ? 'past' : ''}`}>
+      {/* Event Image */}
+      {event.image && (
+        <div className="event-image-container">
+         <img src={event.image} alt={event.name} className="event-image" />
+        </div>
+      )}
       <div className="event-header">
         <span className={`event-category ${event.category.toLowerCase()}`}>
           {event.category}
         </span>
         <span className="event-date">
-          {new Date(event.date).toLocaleDateString('en-US', { 
-            month: 'short', 
-            day: 'numeric', 
-            year: 'numeric' 
+          {new Date(event.date).toLocaleDateString('en-US', {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric'
           })}
         </span>
       </div>
-      
+
       <div className="event-content">
         <h3>{event.name}</h3>
         <div className="event-details">
@@ -36,14 +45,14 @@ function EventCard({ event, isPast = false }) {
         </div>
         <p className="event-description">{event.description}</p>
       </div>
-      
+
       <div className="event-actions">
         {!isPast && (
           <button className="register-btn" onClick={() => setShowRegisterModal(true)}>
             Register
           </button>
         )}
-        <button 
+        <button
           className="details-btn"
           onClick={() => setShowDetailsModal(true)}
         >

@@ -3,6 +3,7 @@ import eventsData from "../data/events.json";
 import "../styles/Events.css";
 import EventCard from "../components/EventCard";
 import EventsTable from "../components/EventsTable";
+import { FaSearch, FaThLarge, FaTable, FaCalendarAlt } from "react-icons/fa";
 
 function EventsPage() {
   const [events, setEvents] = useState([]);
@@ -11,9 +12,16 @@ function EventsPage() {
   const [sortOrder, setSortOrder] = useState("asc");
   const [view, setView] = useState("cards");
   const [searchQuery, setSearchQuery] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
-    // Only set events once on mount
-    setEvents(eventsData);
+    // Simulate loading from an API
+    const timer = setTimeout(() => {
+      setEvents(eventsData);
+      setIsLoading(false);
+    }, 800);
+
+    return () => clearTimeout(timer);
   }, []);
 
   // Filter events based on category and search query
@@ -47,7 +55,10 @@ function EventsPage() {
   return (
     <div className="events-page">
       <div className="events-header">
-        <h1>Campus Events</h1>
+        <h1>
+          <FaCalendarAlt style={{ marginRight: "10px", color: "#1B4D3E" }} />
+          Campus Events
+        </h1>
         <p>Discover and participate in our diverse campus activities</p>
       </div>
 
@@ -56,11 +67,13 @@ function EventsPage() {
         <div className="search-box">
           <input
             type="text"
-            placeholder="Search events..."
+            placeholder="Search events by name or description..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <span className="search-icon">🔍</span>
+          <span className="search-icon">
+            <FaSearch />
+          </span>
         </div>
 
         <div className="controls-group">
@@ -85,6 +98,7 @@ function EventsPage() {
             <button
               className={`sort-order ${sortOrder}`}
               onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}
+              aria-label={`Sort ${sortOrder === "asc" ? "descending" : "ascending"}`}
             >
               {sortOrder === "asc" ? "↑" : "↓"}
             </button>
@@ -96,24 +110,37 @@ function EventsPage() {
               <button
                 className={view === "cards" ? "active" : ""}
                 onClick={() => setView("cards")}
+                aria-label="Card view"
               >
-                Cards
+                <FaThLarge />
               </button>
               <button
                 className={view === "table" ? "active" : ""}
                 onClick={() => setView("table")}
+                aria-label="Table view"
               >
-                Table
+                <FaTable />
               </button>
             </div>
           </div>
         </div>
       </div>
 
+      {/* Loading State */}
+      {isLoading && (
+        <div className="loading-container">
+          <div className="loading-spinner"></div>
+          <p>Loading events...</p>
+        </div>
+      )}
+
       {/* Upcoming Events Section */}
-      {upcomingEvents.length > 0 && (
+      {!isLoading && upcomingEvents.length > 0 && (
         <section className="events-section">
-          <h2>Upcoming Events</h2>
+          <div className="section-header">
+            <h2>Upcoming Events</h2>
+            <span className="event-count">{upcomingEvents.length} events</span>
+          </div>
           {view === "cards" ? (
             <div className="events-grid">
               {upcomingEvents.map((event) => (
@@ -127,9 +154,12 @@ function EventsPage() {
       )}
 
       {/* Past Events Section */}
-      {pastEvents.length > 0 && (
+      {!isLoading && pastEvents.length > 0 && (
         <section className="events-section past-events">
-          <h2>Past Events</h2>
+          <div className="section-header">
+            <h2>Past Events</h2>
+            <span className="event-count">{pastEvents.length} events</span>
+          </div>
           {view === "cards" ? (
             <div className="events-grid">
               {pastEvents.map((event) => (
@@ -149,8 +179,11 @@ function EventsPage() {
         </section>
       )}
 
-      {sortedEvents.length === 0 && (
+      {!isLoading && sortedEvents.length === 0 && (
         <div className="no-events">
+          <div className="no-events-icon">
+            <FaCalendarAlt size={32} color="#1B4D3E" />
+          </div>
           <h3>No events found</h3>
           <p>Try adjusting your filters or search query</p>
         </div>

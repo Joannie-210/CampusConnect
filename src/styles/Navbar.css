@@ -11,8 +11,8 @@
   top: 0;
   left: 0;
   z-index: 50;
-  position: fixed;               /* stays on top */
-  transition: transform 0.4s ease-in-out; /* smooth slide */
+  position: fixed;              
+  transition: transform 0.4s ease-in-out; 
 }
 
 /* when visible */
