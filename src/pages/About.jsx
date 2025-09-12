@@ -4,7 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import "../styles/About.css";
 
-// Assets
+
 import event from "../assets/AboutAssets/event.jpg";
 import Aptech_Limited_Logo from "../assets/AboutAssets/Aptech_Limited_Logo.svg.png";
 import middleSex from "../assets/AboutAssets/middleSex.jpg";
@@ -23,7 +23,6 @@ import BloodDonation from "../assets/AboutAssets/Blood-Donation.jpeg";
 import Intercollege from "../assets/AboutAssets/Inter-college Sports.webp";
 import aptechlocation from "../assets/AboutAssets/aptechlocation.webp";
 
-/* ================== Data ================== */
 const slides = [
   { img: Alumni, title: "About CampusConnect" },
   { img: event, title: "CampusConnect is an official event" },
@@ -67,7 +66,7 @@ const About = () => {
   return (
     <div className="about-conta">
 
-      {/* Hero Slider */}
+     
       <div className="aboutus" data-aos="fade-up">
         <div
           className="about-usslider"
@@ -84,7 +83,7 @@ const About = () => {
         </div>
       </div>
 
-      {/* Overview Section */}
+ 
       <section className="about-overview" data-aos="fade-right">
         <header className="about-overview-header">
           <h2>College Overview</h2>
@@ -124,7 +123,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Highlights */}
+     
       <section className="about-highlights" data-aos="fade-up">
         <h2>
           Campus <i style={{ fontStyle: "normal", color: "#ffaa00" }}>Highlights</i> & Recognitions
@@ -152,17 +151,10 @@ const About = () => {
           ))}
         </div>
 
-        {modalImage && (
-          <div className="modal-overlay" onClick={() => setModalImage(null)}>
-            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <button className="modal-close" onClick={() => setModalImage(null)}>✕</button>
-              <img src={modalImage} alt="Enlarged view" />
-            </div>
-          </div>
-        )}
+        
       </section>
 
-      {/* Events */}
+ 
       <section className="about-event" data-aos="fade-left">
         <header className="about-eventheader">
           <h2><i style={{ color: "#ffaa00", fontStyle: "normal" }}>Key</i> Annual Events</h2>
@@ -191,7 +183,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Timelines */}
+
       <section className="about-timelines" data-aos="fade-up">
         <h2>Annual Timeline of Events</h2>
         <div className="acounttimelines">
@@ -212,7 +204,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="about-joinus" data-aos="zoom-in">
         <h2>Join Us and Be Part of the Excitement!</h2>
         <p>
@@ -224,6 +215,14 @@ const About = () => {
           </button>
         </div>
       </section>
+      {modalImage && (
+          <div className="modal-overlay" onClick={() => setModalImage(null)}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <button className="modal-close" onClick={() => setModalImage(null)}>✕</button>
+              <img src={modalImage} alt="Enlarged view" />
+            </div>
+          </div>
+        )}
     </div>
   );
 };
