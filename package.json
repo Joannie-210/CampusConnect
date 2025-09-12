@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "aos": "^2.3.4",
+    "bootstrap": "^5.3.8",
     "framer-motion": "^12.23.12",
     "lucide-react": "^0.543.0",
     "react": "^19.1.1",

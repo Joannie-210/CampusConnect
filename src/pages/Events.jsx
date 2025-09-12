@@ -56,7 +56,7 @@ function EventsPage() {
     <div className="events-page">
       <div className="events-header">
         <h1>
-          <FaCalendarAlt style={{ marginRight: "10px", color: "#1B4D3E" }} />
+         
           Campus Events
         </h1>
         <p>Discover and participate in our diverse campus activities</p>
@@ -138,10 +138,10 @@ function EventsPage() {
         <section className="events-section">
           <div className="section-header">
             <h2>Upcoming Events</h2>
-            <span className="event-count">{upcomingEvents.length} events</span>
+            {/* <span  className="event-count">{upcomingEvents.length} events</span> */}
           </div>
           {view === "cards" ? (
-            <div className="events-grid">
+            <div style={{marginTop:"40px"}} className="events-grid">
               {upcomingEvents.map((event) => (
                 <EventCard key={event.id} event={event} />
               ))}
@@ -157,7 +157,7 @@ function EventsPage() {
         <section className="events-section past-events">
           <div className="section-header">
             <h2>Past Events</h2>
-            <span className="event-count">{pastEvents.length} events</span>
+            {/* <span className="event-count">{pastEvents.length} events</span> */}
           </div>
           {view === "cards" ? (
             <div className="events-grid">

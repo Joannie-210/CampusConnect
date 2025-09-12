@@ -10,7 +10,7 @@
 .events-page {
   padding: 20px;
   padding-top: 80px; /* Space below navbar */
-  background: linear-gradient(135deg, #FAF9F6 0%, #e0f7e0 100%);
+  background: #f8f8f8;
   min-height: 100vh;
   font-family: brico, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -18,7 +18,8 @@
 
 .events-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  margin-top: 30px;
 }
 
 .events-header h1 {
@@ -128,7 +129,7 @@
 
 .view-toggle button {
   padding: 8px 16px;
-  background: #FFFAA0;
+  background: white;
   border: none;
   color: #1B4D3E;
   cursor: pointer;
@@ -158,14 +159,14 @@
   color: #145c2c;
 }
 
-/* --- EVENTS GRID --- */
+
 .events-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 20px;
 }
 
-/* --- EVENT CARD --- */
+
 .event-card {
   position: relative;
   background: #fff;
@@ -184,7 +185,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 13px 18px;
-  background: linear-gradient(90deg, #e0f7e0, #FFFAA0);  border-bottom: 1px solid #FFFAA0;
+  color: #145c2c;
+
 }
 
 .event-category {
@@ -266,7 +268,7 @@
 
 .register-btn, .details-btn {
   padding: 8px 16px;
-  border-radius: 6px;
+  border-radius: 60px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
@@ -287,7 +289,7 @@
 }
 
 .details-btn {
-  background: #FFFAA0;
+  background: #e0f7e0;
   color: #1B4D3E;
   border: 1px solid #e0f7e0;
 }
@@ -313,17 +315,17 @@
 }
 
 .events-table th {
-  background: #FFFAA0;
+  background: #1B4D3E;
   padding: 15px 20px;
   text-align: left;
-  color: #1B4D3E;
+  color: #e0f7e0;
   font-weight: 600;
   border-bottom: 1px solid #e0f7e0;
 }
 
 .events-table td {
   padding: 15px 20px;
-  border-bottom: 1px solid #FFFAA0;
+  border-bottom: 1px solid #f1f1f1;
   color: #145c2c;
 }
 
@@ -332,7 +334,7 @@
 }
 
 .events-table tr:hover {
-  background: #e0f7e0;
+  background: #f8f8f8;
 }
 
 .events-table tr.past {
@@ -362,16 +364,20 @@
   padding: 6px 12px;
   font-size: 0.9rem;
   font-family: brico, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #1B4D3E;
-  color: #fff;
+  background: #e0f7e0;
+  color: #1B4D3E;
   border: none;
-  border-radius: 6px;
+  border-radius: 50px;
   transition: background 0.2s, transform 0.1s;
-
+  box-shadow: 0 4px 10px 1px #e1e1e1;
+}
+.table-actions button:nth-of-type(2) {
+  background-color: white;
+  color: #1B4D3E;
 }
 
 .table-actions button:hover {
-  background: #145c2c;
+
   transform: translateY(-2px);
   cursor: pointer;
 }
@@ -466,7 +472,7 @@
   padding: 0.7em 1em;
   border: 1px solid #e0f7e0;
   border-radius: 8px;
-  background: #FFFAA0;
+  background: #f6f6f6;
   color: #1B4D3E;
   transition: border-color 0.2s, background 0.2s;
 }
