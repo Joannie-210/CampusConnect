@@ -24,16 +24,17 @@ export default function Navbar() {
   }, [lastScrollY])
 
   return (
+    <>
     <header className={`nav-header ${showNavbar ? 'show' : 'hide'}`}>
       <div className="nav-inner">
-        {/* Brand */}
+       
         <div className="nav-left">
           <Link to="/" className="brand">
             Campus<i style={{ color: "#ffaa00" }}>Connect</i>
           </Link>
         </div>
 
-        {/* Desktop links */}
+        
         <nav className="nav-links">
           <NavLink to="/" end>Home</NavLink>
           <NavLink to="/about">About</NavLink>
@@ -43,13 +44,13 @@ export default function Navbar() {
           <NavLink to="/contact">Contact</NavLink>
         </nav>
 
-        {/* Desktop button */}
+      
         <Link to="/events" className="nav-btn">
           Signup
           <span className="nav-btn-icon">↗</span>
         </Link>
 
-        {/* Mobile toggle */}
+       
         <button 
           className="nav-toggle" 
           aria-label="toggle menu" 
@@ -60,7 +61,9 @@ export default function Navbar() {
       </div>
 
     
-      <div className={`mobile-menu ${menuOpen ? "active" : ""}`}>
+      
+    </header>
+    <div className={`mobile-menu ${menuOpen ? "active" : ""}`}>
         <button 
           className="menu-close" 
           aria-label="close menu"
@@ -78,6 +81,6 @@ export default function Navbar() {
           Signup <span className="nav-btn-icon">↗</span>
         </Link>
       </div>
-    </header>
+    </>
   )
 }
