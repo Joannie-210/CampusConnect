@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import galleryData from '../data/events.json'; // reuse images for demo
+import galleryData from '../data/events.json'; 
 import '../styles/Gallery.css';
 
 export default function Gallery() {

@@ -140,7 +140,6 @@ export default function Home() {
         </p>
       </div>
 
-      {/* About Section */}
       <section className="home-about" data-aos="fade-up">
         <div className="home-about-inner">
           <div className="home-about-text" data-aos="fade-right">
@@ -161,12 +160,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonial Section */}
+     
       <div data-aos="zoom-in">
         <Testimonial />
       </div>
 
-      {/* Call to Action */}
+
       <section className="home-cta" data-aos="fade-up">
         <h2>Stay Connected, Stay Involved</h2>
         <p>

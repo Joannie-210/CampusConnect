@@ -12,7 +12,7 @@ import bestIT from "../assets/AboutAssets/bestIT.jpg";
 import State from "../assets/AboutAssets/State-of-the-art labs.jpg";
 import Partnership from "../assets/AboutAssets/Partnership.jpeg";
 import Hackathon from "../assets/AboutAssets/Hackathon.jpg";
-import TechFest from "../assets/AboutAssets/TechFest.jpeg";
+// import TechFest from "../assets/AboutAssets/TechFest.jpeg";
 import Robotics from "../assets/AboutAssets/Robotics.jpeg";
 import Dance from "../assets/AboutAssets/Dance competition.jpg";
 import MusicNights from "../assets/AboutAssets/Music-Nights.jpg";
@@ -155,11 +155,29 @@ const About = () => {
           <li>State-of-the-art labs & hubs</li>
         </ul>
 
-        <div className="about-cards-hights">
-          {[years, Partnership, bestIT, Alumni, State].map((img, i) => (
-            <img key={i} src={img} alt="highlight" onClick={() => setModalImage(img)} />
-          ))}
+         <div>
+      <div className="about-cards-hights">
+        {[years, Partnership, bestIT, Alumni, State].map((img, i) => (
+          <img
+            key={i}
+            src={img}
+            alt="highlight"
+            onClick={() => setModalImage(img)}
+          />
+        ))}
+      </div>
+
+      {modalImage && (
+        <div className="modal-overlay" onClick={() => setModalImage(null)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setModalImage(null)}>
+              ✕
+            </button>
+            <img src={modalImage} alt="Enlarged view" />
+          </div>
         </div>
+      )}
+    </div>
       </section>
 
           
@@ -213,15 +231,6 @@ const About = () => {
         </div>
       </section>
 
-    
-      {/* {modalImage && (
-        <div className="about-full" onClick={() => setModalImage(null)}>
-          <div className="about-full-content" onClick={(e) => e.stopPropagation()}>
-            <button className="about-close" onClick={() => setModalImage(null)}>✕</button>
-            <img src={modalImage} alt="Full view" className="aboutfullImage" />
-          </div>
-        </div>
-      )} */}
     </div>
   );
 };
