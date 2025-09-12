@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../styles/About.css";
-
+import Faq from "../components/Faq";
 
 import event from "../assets/AboutAssets/event.jpg";
 import Aptech_Limited_Logo from "../assets/AboutAssets/Aptech_Limited_Logo.svg.png";
@@ -223,6 +223,8 @@ const About = () => {
             </div>
           </div>
         )}
+
+        <Faq />
     </div>
   );
 };

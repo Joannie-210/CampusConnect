@@ -4,7 +4,6 @@ import "../styles/Events.css";
 import EventCard from "../components/EventCard";
 import EventsTable from "../components/EventsTable";
 import { FaSearch, FaThLarge, FaTable, FaCalendarAlt } from "react-icons/fa";
-
 function EventsPage() {
   const [events, setEvents] = useState([]);
   const [filter, setFilter] = useState("All");
@@ -211,7 +210,6 @@ const sortedEvents = [...filteredEvents].sort((a, b) => {
           <p>Try adjusting your filters or search query</p>
         </div>
       )}
-      
     </div>
   );
 }
