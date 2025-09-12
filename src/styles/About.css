@@ -674,6 +674,8 @@ h2, h3, p {
   max-width: 900px;
   margin: 3rem auto;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  font-family: brico;
+
 }
 
 .faq-section h2 {
@@ -730,6 +732,8 @@ h2, h3, p {
   justify-content: space-between;
   cursor: pointer;
   transition: background 0.3s ease;
+  font-family: brico;
+
 }
 
 .faq-question:hover {
@@ -746,6 +750,7 @@ h2, h3, p {
 
 .faq-answer p {
   margin: 0;
+  
 }
 
 @keyframes fadeIn {
@@ -762,6 +767,8 @@ h2, h3, p {
 @media (max-width: 768px) {
   .faq-section {
     padding: 3rem 1rem;
+  font-family: brico;
+
   }
   .faq-section h2 {
     font-size: 1.8rem;
