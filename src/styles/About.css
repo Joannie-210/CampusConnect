@@ -668,7 +668,7 @@ h2, h3, p {
 }
 /* FAQ Section */
 .faq-section {
-  background: #f8f8f5; /* same as about background */
+  background: #f8f8f5; 
   padding: 4rem 2rem;
   border-radius: 20px;
   max-width: 900px;
@@ -733,7 +733,7 @@ h2, h3, p {
 }
 
 .faq-question:hover {
-  background: #f2f8f4; /* subtle greenish hover */
+  background: #f2f8f4; 
 }
 
 .faq-answer {
@@ -748,7 +748,6 @@ h2, h3, p {
   margin: 0;
 }
 
-/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -760,7 +759,6 @@ h2, h3, p {
   }
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .faq-section {
     padding: 3rem 1rem;
