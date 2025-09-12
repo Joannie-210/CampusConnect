@@ -704,4 +704,7 @@ img {
         justify-content: space-evenly;
         align-items: center;
     }
+    .highlights h2 {
+      font-size: 1.9rem;
+    }
 }
