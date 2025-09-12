@@ -1,18 +1,16 @@
 import React, { useState } from "react";
 
-// You may need to adjust the import path for images if using require or import
-// Example: import eventImages from '../assets/events/event1.jpg';
 
 function EventCard({ event, isPast = false }) {
   const [showRegisterModal, setShowRegisterModal] = useState(false);
   const [showDetailsModal, setShowDetailsModal] = useState(false);
 
-  // Prevent modal click from closing when clicking inside modal
+
   const stopPropagation = (e) => e.stopPropagation();
 
   return (
     <div className={`event-card ${isPast ? 'past' : ''}`}>
-      {/* Event Image */}
+
       {event.image && (
         <div className="event-image-container">
          <img src={event.image} alt={event.name} className="event-image" />
@@ -60,7 +58,7 @@ function EventCard({ event, isPast = false }) {
         </button>
       </div>
 
-      {/* Only one modal rendered at a time */}
+      
       {showRegisterModal && !showDetailsModal && (
         <div className="details-modal-overlay" onClick={() => setShowRegisterModal(false)}>
           <div className="details-modal" onClick={stopPropagation}>

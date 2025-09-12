@@ -627,6 +627,29 @@ img {
     margin: 0 auto 30px auto;
   }
 } 
+@media (max-width: 752px) {
+  .home-about {
+    height: 900px;
+  }
+}
+
+@media (max-width: 550px) {
+  .home-about {
+    height: 960px;
+  }
+}
+
+@media (max-width: 360px) {
+  .home-about {
+    height: 1000px;
+  }
+}
+
+@media (max-width: 320px) {
+  .home-about{
+    height: 1200px;
+  }
+}
 @media (max-width:400px) {
     
     .btn-div {
