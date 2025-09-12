@@ -538,6 +538,12 @@ h2, h3, p {
     padding: 2rem 1rem;
   }
 }
+@media (max-width: 605px) {
+  
+  .about-highlights h2 {
+    font-size: 2rem;
+  }
+}
 
 @media (max-width: 480px) {
   .aboutus {
@@ -568,5 +574,8 @@ h2, h3, p {
   }
   .about-joinus p {
     font-size: 1rem;
+  }
+  .about-highlights h2, .about-timelines h2{
+    font-size: 1.7rem;
   }
 }
