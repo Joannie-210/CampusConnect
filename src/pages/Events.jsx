@@ -41,28 +41,31 @@ function EventsPage() {
     );
   };
 
-  // --- filtering & sorting ---
-  const filteredEvents = events.filter((e) => {
-    const matchesCategory = filter === "All" || e.category === filter;
-    const name = (e.name || "").toLowerCase();
-    const description = (e.description || "").toLowerCase();
-    const matchesSearch =
-      name.includes(searchQuery.toLowerCase()) ||
-      description.includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
-  });
 
-  const sortedEvents = [...filteredEvents].sort((a, b) => {
-    let comparison = 0;
-    if (sort === "date") {
-      comparison = new Date(a.date) - new Date(b.date);
-    } else if (sort === "name") {
-      comparison = a.name.localeCompare(b.name);
-    } else if (sort === "category") {
-      comparison = a.category.localeCompare(b.category);
-    }
-    return sortOrder === "asc" ? comparison : -comparison;
-  });
+
+const filteredEvents = events.filter((e) => {
+  const matchesCategory = filter === "All" || e.category === filter;
+  const name = (e.title || "").toLowerCase();  
+  const description = (e.description || "").toLowerCase();
+  const matchesSearch =
+    name.includes(searchQuery.toLowerCase()) ||
+    description.includes(searchQuery.toLowerCase());
+  return matchesCategory && matchesSearch;
+});
+
+const sortedEvents = [...filteredEvents].sort((a, b) => {
+  let comparison = 0;
+  if (sort === "date") {
+    comparison = new Date(a.date) - new Date(b.date);
+  } else if (sort === "name") {
+    comparison = (a.title || "").localeCompare(b.title || ""); // ✅ use title
+  } else if (sort === "category") {
+    comparison = (a.category || "").localeCompare(b.category || "");
+  }
+  return sortOrder === "asc" ? comparison : -comparison;
+});
+
+
 
   const now = new Date();
   const upcomingEvents = sortedEvents.filter(
@@ -109,7 +112,7 @@ function EventsPage() {
             <label>Sort by:</label>
             <select value={sort} onChange={(e) => setSort(e.target.value)}>
               <option value="date">Date</option>
-              <option value="name">Name</option>
+              <option value="name">Title</option>
               <option value="category">Category</option>
             </select>
             <button
@@ -150,7 +153,7 @@ function EventsPage() {
       {isLoading && (
         <div className="loading-container">
           <div className="loading-spinner"></div>
-          <p>Loading events...</p>
+          <span style= {{margin: 'auto', textAlign: "center"}} class="loader"></span>
         </div>
       )}
 
@@ -208,6 +211,7 @@ function EventsPage() {
           <p>Try adjusting your filters or search query</p>
         </div>
       )}
+      
     </div>
   );
 }
