@@ -29,7 +29,7 @@ h2, h3, p {
   text-align: center;
 }
 
-/* ================== OVERVIEW ================== */
+
 .about-overview {
   padding: 4rem 1.5rem;
   max-width: 1100px;
@@ -107,6 +107,82 @@ h2, h3, p {
   line-height: 1.6;
 }
 
+.about-cards-hights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.about-cards-hights img {
+  cursor: pointer;
+  width: 180px;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.about-cards-hights img:hover {
+  transform: scale(1.05);
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* Modal content */
+.modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content img {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 8px;
+}
+
+/* Close button */
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #fff;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover {
+  background: #f2f2f2;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
 /* Responsive typography */
 @media (max-width: 768px) {
   .about-overview-header h2 {
@@ -123,7 +199,7 @@ h2, h3, p {
 }
 
 
-/* ================== HERO SLIDER ================== */
+
 .aboutus {
   position: relative;
   overflow: hidden;

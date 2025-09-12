@@ -14,27 +14,44 @@ function EventsPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
+  const [bookmarks, setBookmarks] = useState(() => {
+
+    const saved = localStorage.getItem("bookmarkedEvents");
+    return saved ? JSON.parse(saved) : [];
+  });
+
   useEffect(() => {
-    
     const timer = setTimeout(() => {
       setEvents(eventsData);
       setIsLoading(false);
     }, 800);
-
     return () => clearTimeout(timer);
   }, []);
 
- 
+  
+  useEffect(() => {
+    localStorage.setItem("bookmarkedEvents", JSON.stringify(bookmarks));
+  }, [bookmarks]);
+
+  const toggleBookmark = (eventId) => {
+    setBookmarks((prev) =>
+      prev.includes(eventId)
+        ? prev.filter((id) => id !== eventId)
+        : [...prev, eventId]
+    );
+  };
+
+  // --- filtering & sorting ---
   const filteredEvents = events.filter((e) => {
     const matchesCategory = filter === "All" || e.category === filter;
     const name = (e.name || "").toLowerCase();
     const description = (e.description || "").toLowerCase();
-    const matchesSearch = name.includes(searchQuery.toLowerCase()) ||
+    const matchesSearch =
+      name.includes(searchQuery.toLowerCase()) ||
       description.includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
-  
   const sortedEvents = [...filteredEvents].sort((a, b) => {
     let comparison = 0;
     if (sort === "date") {
@@ -47,22 +64,22 @@ function EventsPage() {
     return sortOrder === "asc" ? comparison : -comparison;
   });
 
- 
   const now = new Date();
-  const upcomingEvents = sortedEvents.filter(event => new Date(event.date) >= now);
-  const pastEvents = sortedEvents.filter(event => new Date(event.date) < now);
+  const upcomingEvents = sortedEvents.filter(
+    (event) => new Date(event.date) >= now
+  );
+  const pastEvents = sortedEvents.filter(
+    (event) => new Date(event.date) < now
+  );
 
   return (
     <div className="events-page">
       <div className="events-header">
-        <h1>
-         
-          Campus Events
-        </h1>
+        <h1>Campus Events</h1>
         <p>Discover and participate in our diverse campus activities</p>
       </div>
 
-     
+   
       <div className="controls-section">
         <div className="search-box">
           <input
@@ -97,8 +114,12 @@ function EventsPage() {
             </select>
             <button
               className={`sort-order ${sortOrder}`}
-              onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}
-              aria-label={`Sort ${sortOrder === "asc" ? "descending" : "ascending"}`}
+              onClick={() =>
+                setSortOrder(sortOrder === "asc" ? "desc" : "asc")
+              }
+              aria-label={`Sort ${
+                sortOrder === "asc" ? "descending" : "ascending"
+              }`}
             >
               {sortOrder === "asc" ? "↑" : "↓"}
             </button>
@@ -126,7 +147,6 @@ function EventsPage() {
         </div>
       </div>
 
-  
       {isLoading && (
         <div className="loading-container">
           <div className="loading-spinner"></div>
@@ -138,12 +158,16 @@ function EventsPage() {
         <section className="events-section">
           <div className="section-header">
             <h2>Upcoming Events</h2>
-            {/* <span  className="event-count">{upcomingEvents.length} events</span> */}
           </div>
           {view === "cards" ? (
-            <div style={{marginTop:"40px"}} className="events-grid">
+            <div style={{ marginTop: "40px" }} className="events-grid">
               {upcomingEvents.map((event) => (
-                <EventCard key={event.id} event={event} />
+                <EventCard
+                  key={event.id}
+                  event={event}
+                  isBookmarked={bookmarks.includes(event.id)}
+                  onToggleBookmark={() => toggleBookmark(event.id)}
+                />
               ))}
             </div>
           ) : (
@@ -152,12 +176,10 @@ function EventsPage() {
         </section>
       )}
 
-    
       {!isLoading && pastEvents.length > 0 && (
         <section className="events-section past-events">
           <div className="section-header">
             <h2>Past Events</h2>
-            {/* <span className="event-count">{pastEvents.length} events</span> */}
           </div>
           {view === "cards" ? (
             <div className="events-grid">
@@ -166,14 +188,13 @@ function EventsPage() {
                   key={event.id}
                   event={event}
                   isPast={true}
+                  isBookmarked={bookmarks.includes(event.id)}
+                  onToggleBookmark={() => toggleBookmark(event.id)}
                 />
               ))}
             </div>
           ) : (
-            <EventsTable
-              events={pastEvents}
-              isPast={true}
-            />
+            <EventsTable events={pastEvents} isPast={true} />
           )}
         </section>
       )}

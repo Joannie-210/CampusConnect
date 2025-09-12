@@ -9,7 +9,7 @@
 
 .events-page {
   padding: 20px;
-  padding-top: 80px; /* Space below navbar */
+  padding-top: 80px; 
   background: #f8f8f8;
   min-height: 100vh;
   font-family: brico, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -527,7 +527,20 @@
   transform: rotate(90deg);
 }
 
-/* --- EVENT IMAGE --- */
+.bookmark-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+  color: #666;
+  transition: color 0.2s ease;
+  margin-top: 8px;
+}
+
+.bookmark-btn.active {
+  color: #ffaa00;
+}
+
 .event-image-container {
   width: 100%;
   height: 180px;

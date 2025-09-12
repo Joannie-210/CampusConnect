@@ -66,7 +66,7 @@ function EventsTable({ events, isPast = false }) {
         </tbody>
       </table>
 
-      {/* Register Modal */}
+
       {showRegisterModal && selectedEvent && (
         <div
           className="details-modal-overlay"
