@@ -9,6 +9,7 @@ import Events from './pages/Events'
 import Gallery from './pages/Gallery'
 import Feedback from './pages/Feedback'
 import Contact from './pages/Contact'
+import ScrollToTopButton from './components/ScrollToTopButton'
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      <ScrollToTopButton/>
     </div>
   )
 }
