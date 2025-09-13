@@ -57,7 +57,7 @@ const sortedEvents = [...filteredEvents].sort((a, b) => {
   if (sort === "date") {
     comparison = new Date(a.date) - new Date(b.date);
   } else if (sort === "name") {
-    comparison = (a.title || "").localeCompare(b.title || ""); // ✅ use title
+    comparison = (a.title || "").localeCompare(b.title || ""); 
   } else if (sort === "category") {
     comparison = (a.category || "").localeCompare(b.category || "");
   }

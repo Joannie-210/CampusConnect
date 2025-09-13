@@ -27,7 +27,6 @@ function EventCard({ event, isPast = false, isBookmarked = false, onToggleBookma
           })}
         </span>
 
-        {/* Bookmark button */}
         <button
           className={`bookmark-btn ${isBookmarked ? "active" : ""}`}
           onClick={onToggleBookmark}
